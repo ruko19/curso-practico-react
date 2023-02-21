@@ -1,11 +1,20 @@
 import React from 'react'
-import "./App.scss"
+import Layout from './containers/Layout'
+import Login from './containers/Login'
+import "./styles/global.scss"
+
+
+
 
 const App = () => {
   return (
-    <div>
-      <h1 className='titulo'>hola mundo</h1>
-    </div>
+
+    <Layout>
+      <Login />
+    </Layout>
+
+
+
   )
 }
 
