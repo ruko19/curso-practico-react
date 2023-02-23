@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../styles/ProductItem.scss';
+import { useInitialState } from '../hooks/useInitialState';
 import btnAddCart from "../assets/icons/bt_add_to_cart.svg"
 
 const ProductItem = ({ product }) => {
 
-    const [cart, setCart] = useState([]);
+    const { addToCart } = useInitialState()
 
-    const handleCart = () => {
-        setCart([]);
-
+    const handleCart = (item) => {
+        addToCart(item);
     }
     return (
         <div className="ProductItem">
@@ -18,7 +18,7 @@ const ProductItem = ({ product }) => {
                     <p>${product.price}</p>
                     <p>{product.title}</p>
                 </div>
-                <figure onClick={handleCart}>
+                <figure onClick={() => handleCart(product)}>
                     <img src={btnAddCart} alt="" />
                 </figure>
 

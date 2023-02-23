@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-
 import { Link, Outlet } from 'react-router-dom'
+import { useInitialState } from "../hooks/useInitialState"
 import "../styles/Header.scss"
 import iconMenu from "../assets/icons/icon_menu.svg";
 import logoSale from "../assets/logos/logo_yard_sale.svg"
@@ -9,6 +9,7 @@ import iconCart from "../assets/icons/icon_shopping_cart.svg"
 
 const Header = () => {
     const [toggle, setToggle] = useState(false);
+    const { state } = useInitialState()
 
     const handleToggle = () => {
         setToggle(!toggle)
@@ -50,7 +51,7 @@ const Header = () => {
                             platzi@example.com</li>
                         <li className="navbar-shopping-cart">
                             <img src={iconCart} />
-                            <div>2</div>
+                            <div>{state.cart.length > 0 ? state.cart.length : null}</div>
                         </li>
                     </ul>
                 </div>

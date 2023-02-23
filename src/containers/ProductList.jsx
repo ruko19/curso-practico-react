@@ -11,7 +11,7 @@ const ProductList = () => {
         try {
             const data = await dataProducts();
             setProducts(data);
-            console.log(products);
+
         } catch (error) {
             console.log(error.message);
         }
